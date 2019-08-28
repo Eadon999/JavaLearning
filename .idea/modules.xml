@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:/LiZhi_Git_Project/RcmdPlatformScripts/RcmdPlatformScripts.iml" filepath="D:/LiZhi_Git_Project/RcmdPlatformScripts/RcmdPlatformScripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestStringBuffer.iml" filepath="$PROJECT_DIR$/TestStringBuffer.iml" />
+    </modules>
+  </component>
+</project>
