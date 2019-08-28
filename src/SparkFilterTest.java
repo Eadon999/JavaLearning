@@ -6,7 +6,16 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.VoidFunction;
-
+/**
+ * rddInst.filter(定义函数) //map等类似
+ * eg：
+ * JavaDStream<String> actionDStream = lines
+ * 		.filter(new Function<String, Boolean>() {
+ * 			public Boolean call(String msg) throws Exception {
+ * 				return msg+'函数' ;
+ *                        }* 		});
+ *
+ * */
 public class SparkFilterTest {
 
     public static void main(String[] args) {
