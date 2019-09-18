@@ -28,7 +28,7 @@ public class IPAddressUtils {
     /**
      * 纯真IP数据库保存的文件夹
      */
-    private String INSTALL_DIR="D:\\PersonalGitProject\\JavaLearning\\src\\ParseIPToLocation\\";
+    private String INSTALL_DIR="D:\\PersonalGitProject\\JavaLearning\\src\\ParseIPToLocationComplex\\";
 
     /**
      * 常量，比如记录长度等等
