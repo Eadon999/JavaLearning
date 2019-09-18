@@ -6,10 +6,10 @@ package ParseIPToLocation;
  * @Description:
  */
 public class IPEntity {
-    String nation;   //国家:0级地址
-    String province; //省:0级地址
-    String city;     //市:1级地址
-    String region;   //区:2级地址
+    String nation="not found";   //国家:0级地址
+    String province="not found"; //省:0级地址
+    String city="not found";     //市:1级地址
+    String region="not found";   //区:2级地址
 
     public String getNation() {
         return nation;

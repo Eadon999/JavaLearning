@@ -78,17 +78,20 @@ public class FindIPLocation {
 
             if (part.length == 1) {
                 //只有1级地址
-                ipentity.setNation(part[0]);
-                ipentity.setProvince(part[0]);
+                String provi = part[0].replaceAll("省|市","");
+                ipentity.setProvince(provi);
+                if (provi.equals("北京")||provi.equals("上海")||provi.equals("重庆")||provi.equals("天津")){
+                    ipentity.setCity(provi);
+                }
             } else if (part.length == 2) {
                 //有2级地址
-                ipentity.setProvince(part[0]);
-                ipentity.setCity(part[1]);
+                ipentity.setProvince(part[0].replaceAll("省|市",""));
+                ipentity.setCity(part[1].replaceAll("省|市",""));
             } else if (part.length == 3) {
                 //有3级地址
-                ipentity.setProvince(part[0]);
-                ipentity.setCity(part[1]);
-                ipentity.setRegion(part[2]);
+                ipentity.setProvince(part[0].replaceAll("省|市",""));
+                ipentity.setCity(part[1].replaceAll("省|市",""));
+//                ipentity.setRegion(part[2]);
             }
 
         } catch (Exception e) {
