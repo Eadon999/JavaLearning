@@ -1,20 +1,20 @@
-package ParseIPToLocation; /**
+package ParseIPToLocation;
+/**
  * @Auther: Don
  * @Date: 2019/9/16 20:21
  * @Description:
  */
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.io.UnsupportedEncodingException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.io.*;
 import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 public class IPSeeker{
     private Log log = LogFactory.getLog(IPSeeker.class);
@@ -83,18 +83,21 @@ public class IPSeeker{
     // 起始地区的开始和结束的绝对偏移
     private int ipBegin, ipEnd;
 
-    public IPSeeker(File ipFile) throws Exception{
-        this.ipFile = new RandomAccessFile(ipFile, "r");
-        ipCache = new HashMap<String, IPLocation>();
-        FileChannel fc = this.ipFile.getChannel();
-        mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, ipFile.length());
-        mbb.order(ByteOrder.LITTLE_ENDIAN);
-        ipBegin = readInt(0);
-        ipEnd = readInt(4);
-        if(ipBegin==-1 || ipEnd==-1){
-            throw new IOException("IP地址信息文件格式有错误，IP显示功能将无法使用");
+    public IPSeeker(File ipFile){
+        try {
+            this.ipFile = new RandomAccessFile(ipFile, "r");
+            ipCache = new HashMap<String, IPLocation>();
+            FileChannel fc = this.ipFile.getChannel();
+            mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, ipFile.length());
+            mbb.order(ByteOrder.LITTLE_ENDIAN);
+            ipBegin = readInt(0);
+            ipEnd = readInt(4);
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+        } catch (IOException e){
+            System.out.println(e);
         }
-        log.debug("使用IP地址库:"+ipFile.getAbsolutePath());
+
     }
 
     /**

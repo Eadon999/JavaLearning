@@ -35,9 +35,4 @@ public class IPEntity {
     public void setRegion(String region) {
         this.region = region;
     }
-
-    public IPEntity(){
-
-    }
-
 }
